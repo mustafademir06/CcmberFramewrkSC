@@ -1,4 +1,4 @@
-@Tumu
+@us1001
 Feature: Amazon Search
 
   @nutella
