@@ -123,7 +123,6 @@ public class TrendyolMorhipoStepDefinition {
     @And("sonra diger sayfayida kapatiniz")
     public void sonraDigerSayfayidaKapatiniz() {
 
-
-        Driver.closeDriver();
+        Driver.quitDriver();
     }
 }

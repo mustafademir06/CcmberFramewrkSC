@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@heroku", //"@java or @nutella" birden fazla tag'i birlikte calistirabiliriz.
+        tags = "@google", //"@java or @nutella" birden fazla tag'i birlikte calistirabiliriz.
         dryRun = false
 )
 
