@@ -74,11 +74,11 @@ public class TrendyolMorhipoStepDefinition {
         windowList = new ArrayList<>(Driver.getDriver().getWindowHandles());
 
 
-        windowHandle = Driver.getDriver().getWindowHandles();
-        iterator = windowHandle.iterator();
+        //windowHandle = Driver.getDriver().getWindowHandles();
+        //iterator = windowHandle.iterator();
 
-        parentHandle = iterator.next();
-        childHandle = iterator.next();
+        //parentHandle = iterator.next();
+        //childHandle = iterator.next();
 
         ReusableMethod.waitFor(2);
     }
