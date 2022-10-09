@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TutorialsStepDefinitions {
+public class TutorialsStepDefinition {
 
     TutorialsPage page = new TutorialsPage();
 

@@ -89,6 +89,7 @@ public class AmazonStepDefinition {
     public void kullaniciSayfasinaGider(String istenenUrl) {
 
         Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
+
     }
 
     @And("url'in {string} icerdigini test eder")
@@ -98,8 +99,8 @@ public class AmazonStepDefinition {
         Assert.assertTrue(actualUrl.contains(istenenKelime));
     }
 
-    @Then("kullaici {int} sn bekler")
-    public void kullaiciSnBekler(int istenenSaniye) {
+    @Then("kullanici {int} sn bekler")
+    public void kullaniciSnBekler(int istenenSaniye) {
         try {
             Thread.sleep(istenenSaniye * 1000);
 

@@ -3,7 +3,7 @@ Feature: kullanici Tutorialsninja sayfasinda urun sepete ekleyebilmeli
 
   Scenario: kullanici sepete urun ekler
 
-    Given kullanici "tutorialsUrl" sayfasina gider
+    Given kullanici "tutorialUrl" sayfasina gider
     Then Phones & PDAS'a tiklar
     Then Telefonlarin markalarini alir
     Then Tum ogeleri sepete ekler

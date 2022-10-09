@@ -3,6 +3,7 @@ Feature: US1002 kullanici ortak adimlari Background ile calistirir
 
   Background: ortak adim
     Given Kullanici amazon sayfasina gider
+    #Background ortak olan adimi yazip gerisi farkli senaryolar
 
   Scenario: TC04 amazon nutella arama
     And Kullanici Nutella aratir

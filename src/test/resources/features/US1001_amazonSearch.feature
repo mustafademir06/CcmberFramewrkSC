@@ -3,14 +3,13 @@ Feature: Amazon Search
 
   @nutella
   Scenario: TC01 Kullanici amazonda nutella aratir
-
     Given Kullanici amazon sayfasina gider
     Then Kullanici Nutella aratir
     And sonuclarin Nutella icerdigini test eder
     And sayfayi kapatir
 
 
-    @java
+  @java
   Scenario: TC02 Kullanici amazonda Java aratir
     Given Kullanici amazon sayfasina gider
     Then Kullanici Java icin arama yapar
@@ -18,7 +17,7 @@ Feature: Amazon Search
     And sayfayi kapatir
 
 
-    @iphone
+  @iphone
   Scenario: TC03 Kullanici amazonda iphone aratir
     When Kullanici amazon sayfasina gider
     And kullanici iphone icin arama yapar
