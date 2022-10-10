@@ -22,15 +22,15 @@ public class TrendyolMorhipoStepDefinition {
     TrendyolMorhipoPage page = new TrendyolMorhipoPage();
     int trendyolAramaSonucu;
     int morhipoAramaSonucu;
+    String trendyolHandle;
+    String morhipoHandle;
+
+
     List<String> windowList;
-
     Set<String> windowHandle;
-
     Iterator<String> iterator;
-
     String parentHandle;
     String childHandle;
-    boolean sonuc = false;
 
     @Given("google sayfasina gider")
     public void googleSayfasinaGider() {
@@ -42,7 +42,9 @@ public class TrendyolMorhipoStepDefinition {
     public void trendyoluAratir() {
 
         page.googleSearchBox.sendKeys("Trendyol", Keys.ENTER);
-        windowList = new ArrayList<>(Driver.getDriver().getWindowHandles());
+
+
+        //windowList = new ArrayList<>(Driver.getDriver().getWindowHandles());
     }
 
     @And("trendyol linkini bulup siteye gider")
@@ -51,19 +53,25 @@ public class TrendyolMorhipoStepDefinition {
         ReusableMethod.jsScrollClick(page.trendyol);
 
         int gender = ReusableMethod.random().nextInt(page.gender.size());
+
         page.gender.get(gender).click();
     }
 
     @Then("trendyolda makas aratir")
     public void trendyoldaMakasAratir() {
 
+        trendyolHandle = Driver.getDriver().getWindowHandle();
+
         page.trendyolSearchBox.sendKeys("makas", Keys.ENTER);
+
+        ReusableMethod.waitFor(2);
     }
 
     @Then("trendyoldaki arama sonucundan toplam urun sayisini alir")
     public void trendyoldakiAramaSonucundanToplamUrunSayisiniAlir() {
 
         trendyolAramaSonucu = Integer.parseInt(page.trendyolAramaSonucu.getText().replaceAll("\\D", ""));
+
         System.out.println("trendyol aramasonucu -> " + trendyolAramaSonucu);
     }
 
@@ -71,20 +79,23 @@ public class TrendyolMorhipoStepDefinition {
     public void yeniSekmeMorhipoAnasayfasinaGider() {
 
         Driver.getDriver().switchTo().newWindow(WindowType.TAB).get("https://www.morhipo.com/");
-        windowList = new ArrayList<>(Driver.getDriver().getWindowHandles());
+        ReusableMethod.waitFor(2);
 
+
+
+        //windowList = new ArrayList<>(Driver.getDriver().getWindowHandles());
 
         //windowHandle = Driver.getDriver().getWindowHandles();
         //iterator = windowHandle.iterator();
 
         //parentHandle = iterator.next();
         //childHandle = iterator.next();
-
-        ReusableMethod.waitFor(2);
     }
 
     @Then("morhipoda makas aratir")
     public void morhipodaMakasAratir() {
+
+        morhipoHandle = Driver.getDriver().getWindowHandle();
 
         page.morhipoSearchBox.sendKeys("makas", Keys.ENTER);
     }
@@ -93,6 +104,7 @@ public class TrendyolMorhipoStepDefinition {
     public void morhipodakiAramaSonucundanToplamUrunSayisiniAlir() {
 
         morhipoAramaSonucu = Integer.parseInt(page.morhipoAramaSonucu.getText().replaceAll("\\D", ""));
+
         System.out.println("morhipo arama sonu -> " + morhipoAramaSonucu);
 
     }
@@ -101,28 +113,33 @@ public class TrendyolMorhipoStepDefinition {
     public void ikiSitedeBulunanToplamMakasSayisiniKarsilastirir() {
 
         if (trendyolAramaSonucu > morhipoAramaSonucu) {
-            sonuc = true;
-        }
+
+            System.out.println("Trendyol makas arama sonucu daha fazla");
+
+        }else System.out.println("Morhipo makas arama sonucu daha fazla");
     }
 
     @Then("Once Urun sayisi fazla olan siteyi kapatir")
     public void onceUrunSayisiFazlaOlanSiteyiKapatir() {
 
-        if (sonuc) {
-            //Driver.getDriver().switchTo().window(parentHandle).close();
+        if (trendyolAramaSonucu > morhipoAramaSonucu) {
 
-            Driver.getDriver().switchTo().window(windowList.get(0));
+            Driver.getDriver().switchTo().window(trendyolHandle).close();
+
+            //Driver.getDriver().switchTo().window(windowList.get(0));
+
         } else {
-            //Driver.getDriver().switchTo().window(childHandle).close();
 
-            Driver.getDriver().switchTo().window(windowList.get(1));
+            Driver.getDriver().switchTo().window(morhipoHandle).close();
+
+            //Driver.getDriver().switchTo().window(windowList.get(1));
         }
-        Driver.closeDriver();
     }
 
     @And("sonra diger sayfayida kapatiniz")
     public void sonraDigerSayfayidaKapatiniz() {
 
-        Driver.quitDriver();
+        ReusableMethod.waitFor(2);
+        Driver.getDriver().quit();
     }
 }
