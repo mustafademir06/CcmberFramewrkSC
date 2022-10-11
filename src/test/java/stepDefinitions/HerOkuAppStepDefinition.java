@@ -3,7 +3,6 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HerOkuAppPage;
@@ -11,7 +10,7 @@ import utilities.Driver;
 
 import java.time.Duration;
 
-public class HerOkuAppStepDefinitions {
+public class HerOkuAppStepDefinition {
     HerOkuAppPage herOkuAppPage=new HerOkuAppPage();
 
     @Given("add element butonuna basar")
