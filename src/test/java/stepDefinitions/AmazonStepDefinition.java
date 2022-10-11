@@ -109,4 +109,10 @@ public class AmazonStepDefinition {
             throw new RuntimeException(e);
         }
     }
+
+    @Given("kullanici {string} sitesine gider")
+    public void kullaniciSitesineGider(String site) {
+
+        Driver.getDriver().get(site);
+    }
 }

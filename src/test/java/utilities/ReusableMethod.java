@@ -39,39 +39,44 @@ public class ReusableMethod {
     }//
 
     public static void jsScrollClick(WebElement webElement) {  //kaydir ve tikla
+
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         try {
             webElement.click();
+
         } catch (Exception e) {
+
             js.executeScript("arguments[0].scrollIntoView(true);", webElement);
             js.executeScript("arguments[0].click()", webElement);
         }
-    }
+    }//
 
 
     public static WebDriverWait driverWait(WebDriver driver, Duration duration) { //expilicity Wait
 
         return wait = new WebDriverWait(driver, duration);
-    }
+    }//
 
     public static void waitFor(int sec) { //bekle
         try {
             Thread.sleep(sec * 1000);
+
         } catch (InterruptedException e) {
+
             e.printStackTrace();
         }
-    }
+    }//
 
     public static Random random() { //random method'u
 
         return random = new Random();
-    }
+    }//
 
     public static void jsScroll(WebElement webElement) {  //Sayfayi Webelemente kadar kaydir
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].scrollIntoView(true);", webElement);
-    }
+    }//
 
     public static void toBeClickableWait(WebElement webElement) {
 

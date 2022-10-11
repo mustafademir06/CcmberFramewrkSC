@@ -1,4 +1,4 @@
-@us1005
+@us005
 Feature: US005
 
   Scenario: TC11 kullanici gecersiz bilgilerle giris saglayamamali

@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@us1005", //"@java or @nutella" birden fazla tag'i birlikte calistirabiliriz.
+        tags = "@us005", //"@java or @nutella" birden fazla tag'i birlikte calistirabiliriz.
         dryRun = false
 )
 
