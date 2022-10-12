@@ -42,4 +42,16 @@ public class BrcStepDefinition {
 
         page.firstLoginButton.click();
     }
+
+    @And("gecersiz email {string} girer")
+    public void gecersizEmailGirer(String email) {
+
+        page.emailBox.sendKeys(email);
+    }
+
+    @And("gecersiz password {string} girer")
+    public void gecersizPasswordGirer(String password) {
+
+        page.passwordBox.sendKeys(password);
+    }
 }

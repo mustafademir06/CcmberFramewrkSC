@@ -8,6 +8,10 @@ import org.openqa.selenium.Keys;
 import pages.AmazonPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethod;
+import utilities.ReusableMethods;
+
+import java.io.IOException;
 
 public class AmazonStepDefinition {
 
@@ -114,5 +118,81 @@ public class AmazonStepDefinition {
     public void kullaniciSitesineGider(String site) {
 
         Driver.getDriver().get(site);
+    }
+    @Then("sign in butonuna tiklar")
+    public void signInButonunaTiklar() {
+
+        ReusableMethod.getActions().moveToElement(page.helloSignInButton).perform();
+        ReusableMethod.waitFor(1);
+        page.signInButton.click();
+    }
+
+    @And("faker kullanarak e-posta gonderir")
+    public void fakerKullanarakEPostaGonderir() {
+
+        ReusableMethod.getActions()
+                .click(page.emailBox)
+                .sendKeys(ReusableMethod.getFaker().internet().emailAddress()).perform();
+
+    }
+
+    @Then("gonderdigi e-postanın ekran goruntusunu alir")
+    public void gonderdigiEPostaninEkranGoruntusunuAlir() {
+
+        try {
+            ReusableMethods.getScreenshotWebElement("emailBoxSS", page.emailSS);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @And("continiue'a tiklar")
+    public void continiueATiklar() {
+
+        page.continueButton.click();
+    }
+
+    @Then("There was a problem mesajini dogrular")
+    public void thereWasAProblemMesajiniDogrular() {
+
+        Assert.assertTrue(page.problemMessage.isDisplayed());
+    }
+
+    @Then("Need help e tiklar")
+    public void needHelpETiklar() {
+
+        page.needHelp.click();
+    }
+
+    @Then("forgot your password e tiklar")
+    public void forgotYourPasswordETiklar() {
+
+        page.forgotYourPassword.click();
+    }
+
+    @Then("Password assistance metnini dogrular")
+    public void passwordAssistanceMetniniDogrular() {
+
+        Assert.assertTrue(page.passwordAssistance.isDisplayed());
+    }
+
+    @Then("Geri gider")
+    public void geriGider() {
+
+        Driver.getDriver().navigate().back();
+
+        Driver.getDriver().navigate().back();
+    }
+
+    @Then("Create your account butonuna tiklar")
+    public void createYourAccountButonunaTiklar() {
+
+        page.createAccountButton.click();
+    }
+
+    @Then("Create account metnini dogrular")
+    public void createAccountMetniniDogrular() {
+
+        Assert.assertTrue(page.createAccountText.isDisplayed());
     }
 }
