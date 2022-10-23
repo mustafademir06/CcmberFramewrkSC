@@ -6,9 +6,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        plugin = {"html:target/cucumber-reports.html",
+                "json:target/json-reports/cucumber.json",
+                "junit:target/xml-report/cucumber.xml"},
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@p5", //"@java or @nutella" birden fazla tag'i birlikte calistirabiliriz.
+        tags = "@datatable", //"@java or @nutella" birden fazla tag'i birlikte calistirabiliriz.
         dryRun = false
 )
 

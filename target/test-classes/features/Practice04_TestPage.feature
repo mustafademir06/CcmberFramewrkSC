@@ -2,7 +2,7 @@
 Feature: Practice
 
   Scenario Outline: user file upload
-    Given kullanici "https://testpages.herokuapp.com/styled/basic-html-form-test.html" sayfasinda
+    Given kullanici "https://testpages.herokuapp.com/styled/basic-html-form-test.html" sitesine gider
     And username "<kullaniciadi>" password "<sifre>" ve textarea "<metinalani>" kisimlarini doldurur
     Then user bir dosya yukler
     And checkbox bir secer

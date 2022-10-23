@@ -1,4 +1,4 @@
-@test
+@w1
 Feature: Gecersiz giris bilgileri ile siteye girilmemeli
 
   Scenario Outline: TC11 kullanici gecersiz bilgilerle giris yapar
@@ -17,5 +17,4 @@ Feature: Gecersiz giris bilgileri ile siteye girilmemeli
       | Manager5@gmail.com | manager1 |
       | Manager6@gmail.com | manager4 |
       | Manager7@gmail.com | manager5 |
-      | Manager8@gmail.com | manager6 |
-      | Manager9@gmail.com | manager7 |
+
